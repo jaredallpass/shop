@@ -141,8 +141,8 @@ class SpreeOneTwo < ActiveRecord::Migration[5.0]
       t.timestamps null: true
     end
 
-    add_index :spree_line_items, [:order_id],   name: 'index_spree_line_items_on_order_id'
-    add_index :spree_line_items, [:variant_id], name: 'index_spree_line_items_on_variant_id'
+    add_index :spree_line_items, [:order_id],   name: 'index_spree_line_items_on_order_id' unless index_exists?
+    add_index :spree_line_items, [:variant_id], name: 'index_spree_line_items_on_variant_id' unless index_exists?
 
     create_table :spree_log_entries do |t|
       t.references :source, polymorphic: true
