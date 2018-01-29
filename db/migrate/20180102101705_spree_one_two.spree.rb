@@ -315,8 +315,8 @@ class SpreeOneTwo < ActiveRecord::Migration[5.0]
       t.references :user
     end
 
-    add_index :spree_roles_users, [:role_id], name: 'index_spree_roles_users_on_role_id'
-    add_index :spree_roles_users, [:user_id], name: 'index_spree_roles_users_on_user_id'
+    add_index :spree_roles_users, [:role_id], name: 'index_spree_roles_users_on_role_id' unless index_exists?(:spree_roles_users, :role_id)
+    add_index :spree_roles_users, [:user_id], name: 'index_spree_roles_users_on_user_id' unless index_exists?(:spree_roles_users, :user_id)
 
     create_table :spree_shipments do |t|
       t.string     :tracking
