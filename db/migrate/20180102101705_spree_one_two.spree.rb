@@ -182,7 +182,7 @@ class SpreeOneTwo < ActiveRecord::Migration[5.0]
     end
 
     add_index :spree_option_values_variants, [:variant_id, :option_value_id], name: 'index_option_values_variants_on_variant_id_and_option_value_id'
-    add_index :spree_option_values_variants, [:variant_id],                   name: 'index_spree_option_values_variants_on_variant_id'
+    add_index :spree_option_values_variants, [:variant_id],                   name: 'index_spree_option_values_variants_on_variant_id' unless index_exists?(:spree_option_values_variants, :variant_id)
 
     create_table :spree_orders do |t|
       t.string     :number, limit: 15
