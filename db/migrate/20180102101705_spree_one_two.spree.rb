@@ -412,8 +412,8 @@ class SpreeOneTwo < ActiveRecord::Migration[5.0]
       t.timestamps null: true
     end
 
-    add_index :spree_tokenized_permissions, [:permissable_id], name: 'index_tokenized_name'
-    add_index :spree_tokenized_permissions, [:permissable_type], name: 'index_tokenized_type'
+    add_index :spree_tokenized_permissions, [:permissable_id], name: 'index_tokenized_permissions_on_permissable_id'
+    add_index :spree_tokenized_permissions, [:permissable_type], name: 'index_tokenized_permissions_on_permissable_type'
 
     create_table :spree_users do |t|
       t.string     :encrypted_password,     limit: 128
