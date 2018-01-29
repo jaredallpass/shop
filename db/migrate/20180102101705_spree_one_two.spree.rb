@@ -278,7 +278,7 @@ class SpreeOneTwo < ActiveRecord::Migration[5.0]
       t.references :taxon
     end
 
-    add_index :spree_products_taxons, [:product_id], name: 'index_spree_products_taxons_on_product_id'
+    add_index :spree_products_taxons, [:product_id], name: 'index_spree_products_taxons_on_product_id' unless index_exists?(:spree_products_taxons, :product_id)
     add_index :spree_products_taxons, [:taxon_id],   name: 'index_spree_products_taxons_on_taxon_id'
 
     create_table :spree_properties do |t|
